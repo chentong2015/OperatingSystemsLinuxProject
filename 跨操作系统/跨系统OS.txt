@@ -1,0 +1,5 @@
+在Window使用Linu完整完系统需要通过特定平台
+- WSL: Windows Subsystem for Linux 安装Docker时需要借助WSL
+
+在Mac系统使用Windows系统借助特定软件
+- Paralels Desktop

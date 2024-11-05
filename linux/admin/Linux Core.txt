@@ -1,0 +1,65 @@
+1. "man"
+   read the manual for various applications
+
+2. Ping
+   for network troubleshooting and testing connectivity between two devices.
+
+3. /etc/shadow.
+   This file contains the hashed passwords of user accounts on most modern Linux distributions.
+
+4. The UID of the root user in Linux is 0.
+
+5. chmod 修改文件的执行权
+   -rwxr-xr-- 754 分布以三个bit位进行统计(read + write + execute)
+   -r--r--r-- 444
+
+   chown 修改文件或者目录的所有权ownership
+   change the ownership of a file
+
+6. cp test.txt testCopy.txt    复制文件
+   mv test.txt testNewName.txt 修改文件名称
+   mn test.txt bin/test.txt    移动文件位置
+
+7. "cd ~"
+   Change the current location to the user's home directory in Linux
+
+8. I/O stream
+   The standard I/O streams in Linux are STDIN, STDOUT, and STDERR.
+
+9. sudo
+   Execute specific commands with administrative privileges.
+
+10. "/etc"
+   The directory "/etc" contains configuration files in Linux.
+
+11. ;
+   When multiple commands need to be executed on one line in Linux,
+   they must be separated by the semicolon symbol (;).
+
+12. cut
+   字符串的切割并提前指定的部分
+   grab portions of text out of a string, extract specific data from a larger set of information.
+
+13. find
+   search for files and directories within a specified directory.
+
+14. #
+    comments in a BASH script
+
+15. echo "$#"
+    In BASH script will output the number of parameters to the screen.
+
+16. environment variable
+    An environment variable is a dynamic value that can affect the behavior of a system or app.
+
+17. !=   compare strings
+    -ne  compare numerical values 只能比较数字的不等
+
+18. for * in *; do; done 两种循环语句
+    while * ; do; done
+
+19. ^(Orville | Wilbur) Wright$ 正则表达式, 开头和结尾
+
+
+
+

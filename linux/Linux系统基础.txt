@@ -1,0 +1,15 @@
+系统虚拟机: 将系统切出一块, 像一台机器一样运转, 在硬件中虚拟出来, 和主机共享硬件资源
+Linux体系架构: 内核网络、存储、文件系统、内存、调度器，Cgroup等模块
+
+服务端建立连接通过网口或者是网络驱动程序，来感知事件，最先感知到的是OS
+OS底层具有大量的通讯函数和系统函数来实现通讯，Java只是实现了上层调用
+
+中断程序：系统用来响应硬件设备请求的一种机制
+OS在收到硬件的中断请求时，会打断正在执行的进程，然后调用内核中中断程序来响应请求
+实例: OS负责从Channels中转移到事件list中
+
+Linux发行版: RedHat / CentOs / Ubuntu / Alpine(轻量级 几十M)
+Linux内核开发: C++/C和汇编语言
+
+Uyuni: Linux systems management 系统管理工具
+https://www.uyuni-project.org/uyuni-docs/en/uyuni/index.html

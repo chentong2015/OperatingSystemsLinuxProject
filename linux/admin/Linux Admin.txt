@@ -1,0 +1,56 @@
+Linux Administration 运维管理
+
+1. /etc/motd
+   The message of the day (motd) file is located in the /etc directory
+   Display a custom message to users when they log in to the system.
+
+2. /etc/host.conf
+   Linux uses the /etc/host.conf file to resolve hostnames
+   This file contains configuration settings for the hostname resolution process
+
+3. Tin
+   "Tin" refers to a newsreader
+   Software application used to read and organize news articles from various sources.
+
+4. bash
+   bash is a command Shell，program that provides CLI to interact with OS
+   zsh is another command of Shell
+   TODO. Shell的一种命令，一种脚本程序提供和OS交互的CLI
+
+5. /dev/lp0
+   DOS LPT1 port in Linux
+
+6. XFree86
+   XFree86 is a display server software used in Unix-like operating systems
+   It requires a minimum of 8MB of memory to function properly
+
+7. In Linux, you cannot remove a directory if it contains any files or subdirectories
+
+8. Mkfs
+   The command "mkfs" is used to create a file system on a storage device.
+
+9. Admin
+   The default administrator username is "admin"
+
+10. wildcards 通配符
+    The asterisk (*) is a wildcard that represents any number of characters.
+    The question mark (?) represents a single character.
+
+11. ps
+    Display information about the currently running processes on a system.
+
+12. kill
+    The command "kill" followed by the process ID
+    The kill command in Linux can be used to terminate a process
+
+13. su
+    The "su" command stands for "switch user"
+    Allows user to switch to a different user account, for example root user
+
+14. 256 文件名称的最大字符数目
+    Linux allows filenames up to 256 characters because it follows the POSIX standard
+
+15. Recover the root password after forgetting
+    挂载root分区，编辑/etc/passwd文件删除root密码，重启
+    Mount the root partition, edit the /etc/passwd file to remove the root password, reboot.
+
