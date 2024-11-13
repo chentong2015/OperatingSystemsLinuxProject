@@ -1,0 +1,48 @@
+> "man"
+   read the manual for various applications
+
+> Ping
+   for network troubleshooting and testing connectivity between two devices.
+
+> /etc/shadow.
+   This file contains the hashed passwords of user accounts on most modern Linux distributions.
+
+> The UID of the root user in Linux is 0.
+
+> chmod 修改文件的执行权
+   -rwxr-xr-- 754 分布以三个bit位进行统计(read + write + execute)
+   -r--r--r-- 444
+   chown 修改文件或者目录的所有权ownership
+   change the ownership of a file
+
+> cp test.txt testCopy.txt    复制文件
+   mv test.txt testNewName.txt 修改文件名称
+   mn test.txt bin/test.txt    移动文件位置
+
+> "cd ~"
+   Change the current location to the user's home directory in Linux
+
+> I/O stream
+   The standard I/O streams in Linux are STDIN, STDOUT, and STDERR.
+
+> sudo
+   Execute specific commands with administrative privileges.
+
+> "/etc"
+   The directory "/etc" contains configuration files in Linux.
+
+> ;
+   When multiple commands need to be executed on one line in Linux,
+   they must be separated by the semicolon symbol (;).
+
+> cut 字符串的切割并提前指定的部分
+   grab portions of text out of a string, extract specific data from a larger set of information.
+
+> #
+  comments in a BASH script
+
+> echo "$#"
+  In BASH script will output the number of parameters to the screen.
+
+!=   compare strings
+-ne  compare numerical values 只能比较数字的不等

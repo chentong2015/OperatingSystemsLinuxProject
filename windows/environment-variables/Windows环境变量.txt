@@ -1,0 +1,3 @@
+环境变量分为两种: 系统变量和用户变量
+System environment variables are globally accessed by all users.
+User environment variables are specific only to the currently logged-in user.
