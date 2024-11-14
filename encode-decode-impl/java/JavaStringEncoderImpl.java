@@ -1,7 +1,7 @@
 // 自定义实现字符串的编码: 随机性+难破解性
 public class JavaStringEncoderImpl {
 
-    public static byte[] changeToDecryptedString(String strText) {
+    public static byte[] encodeStringText(String strText) {
         strText = strText.trim();
         byte[] bytes = new byte[strText.length() / 4];
         for (int i = 0; i < strText.length(); i += 4) {
