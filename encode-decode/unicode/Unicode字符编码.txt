@@ -1,5 +1,0 @@
-所有char字符均会被转换成16 bit位的Unicode码值:
-0000-0FFF(16bits可编65536字符)
-
-https://www.unicode.org/reports/
-https://symbl.cc/en/unicode/blocks/

@@ -1,8 +1,0 @@
-Simple encoder and decoders for various formats such as Base64 and Hexadecimal.
-The codec package also maintains a collection of phonetic encoding utilities.
-
-<dependency>
-    <groupId>commons-codec</groupId>
-    <artifactId>commons-codec</artifactId>
-    <version>1.15</version>
-</dependency>

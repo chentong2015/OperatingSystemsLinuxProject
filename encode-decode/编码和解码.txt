@@ -1,7 +1,0 @@
-不同的编码格式对数据处理后的结果01有区别
-US-ASCII     Seven-bit ASCII, the Basic Latin block of the Unicode character set
-ISO-8859-1   ISO Latin Alphabet No. 1, a.k.a. ISO-LATIN-1
-UTF-8        Eight-bit UCS Transformation Format
-UTF-16BE     Sixteen-bit UCS Transformation Format, big-endian byte-order
-UTF-16LE     Sixteen-bit UCS Transformation Format, little-endian byte-order
-UTF-16       Sixteen-bit UCS Transformation Format, byte-order identified by an optional byte-order mark
