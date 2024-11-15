@@ -1,8 +1,3 @@
-Environment variable
-An environment variable is a dynamic value that can affect the behavior of a system or app.
-软件或者应用能够直接调用(使用)系统定义的环境变量
-
-
 在Window使用Linu完整完系统需要通过特定平台
 - WSL: Windows Subsystem for Linux 安装Docker时需要借助WSL
 
