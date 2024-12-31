@@ -28,10 +28,10 @@
 > sudo
    Execute specific commands with administrative privileges.
 
-> "/etc"
+> "/etc" 配置文件目录
    The directory "/etc" contains configuration files in Linux.
 
-> ;
+> ; 命令之间的分隔符
    When multiple commands need to be executed on one line in Linux,
    they must be separated by the semicolon symbol (;).
 
@@ -44,5 +44,16 @@
 > echo "$#"
   In BASH script will output the number of parameters to the screen.
 
-!=   compare strings
--ne  compare numerical values 只能比较数字的不等
+> rm /folder
+  In Linux, you cannot remove a directory if it contains any files or subdirectories
+
+> which
+  查看某个命令行命令的来源，检测命令是否存在，反之输出"Not Found"
+
+!=   compare strings 比较字符串是否一致
+-ne  compare numerical values 比较数字相不相等
+
+> means "redirect standard-error" to the given file.
+
+> /dev/null 将之前命令的结果重定向输出到null file，等效于丢弃所有(Error)消息
+  Anything written to it is discarded.

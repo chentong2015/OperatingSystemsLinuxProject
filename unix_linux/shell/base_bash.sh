@@ -3,6 +3,7 @@
 # 使用$符号表示对变量的引用
 # 变量不能使用-连接
 # 变量=赋值时不能有空格
+
 value="test value"
 result=$value
 echo "The result is $result"
@@ -19,7 +20,7 @@ mkdir -p output/primary
 mkdir -p output/secondary
 cp -r ./packaging/resources/target/resources*/* ./output/primary
 
-# for file in $root_path/*; 递归遍历文件
+# 递归遍历$root_path/*中的文件
 for f in $root_path
 do
     if [ -d "$f" ]; then

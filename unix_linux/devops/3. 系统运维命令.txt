@@ -1,20 +1,22 @@
 > ps -A | grep java 查看指定程序的进程Process
 > kill -9 [PID]     关闭指定进程
-> time command     确定某个指令执行的时间
-> nohup command    即使关闭Terminal仍然运行指令
+
+> time command      确定某个指令执行的时间
+> nohup command     即使关闭Terminal仍然运行指令
 
 > man epoll_create 名称查系统函数的介绍
 > man malloc       在内存中分配内存空间，返回指针
-> top              查看系统平均负载和CPU使用率
+
+> top              查看系统平均负载和CPU使用率fr
 > free –m          命令查看内存的使用情况
 > iostat           查看磁盘的读写情况
+
 > du -sh /folder   查看指定目录的大小(disc usage)
   -s, --summarize
   -h, --human-readable
 
 > ifconfig IP地址确定 + 登陆的用户名和密码
 
-检测ssh服务是否已经打开
 > sudo apt-get install openssh-server 首先安装打开ssh服务的库
 > ps -e | grep ssh 检查当前的ssh开启情况
 
@@ -27,12 +29,12 @@
 > netstat -anp | grep :22
 > service sshd start 启动
 
-关闭服务器的防火墙，内网使用来进行测试
-> sudo ufw disable   ## to stop the servur fireware
-> sudo ufw enable    ## to start the servur fireware
+关闭服务器的防火墙Fireware，内网使用来进行测试
+> sudo ufw disable
+> sudo ufw enable
 
 > service iptables stop
-> service iptables status ==> Stopped IPv4 firewall with iptables (tester stop)
+> service iptables status # Stopped IPv4 firewall with iptables (tester stop)
 
 > nc -lnvp 1337
 # listening on [any] 1337 for connections

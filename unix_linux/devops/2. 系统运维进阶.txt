@@ -10,7 +10,7 @@ Tin
    "Tin" refers to a newsreader
    Software application used to read and organize news articles from various sources.
 
-bash => 一种Shell命令，一种脚本程序提供和OS交互的CLI
+bash 一种Shell命令，一种脚本程序提供和OS交互的CLI
    bash is a command Shell，program that provides CLI to interact with OS
    zsh is another command of Shell
 
@@ -18,10 +18,8 @@ bash => 一种Shell命令，一种脚本程序提供和OS交互的CLI
    DOS LPT1 port in Linux
 
 XFree86
-   XFree86 is a display server software used in Unix-like operating systems
+   A display server software used in Unix-like operating systems
    It requires a minimum of 8MB of memory to function properly
-
-In Linux, you cannot remove a directory if it contains any files or subdirectories
 
 Mkfs
    The command "mkfs" is used to create a file system on a storage device.
@@ -37,10 +35,10 @@ ps
   Display information about the currently running processes on a system.
 
 kill
-    The command "kill" followed by the process ID
-    The kill command in Linux can be used to terminate a process
+  The command "kill" followed by the process ID
+  The kill command in Linux can be used to terminate a process
 
-su
+su 切换用户
   The "su" command stands for "switch user"
   Allows user to switch to a different user account, for example root user
 
