@@ -1,3 +1,0 @@
-在Wind系统执行Linux Shell命令
-- MobaXterm Linux Terminal
-- Babun Windows Shell

@@ -1,0 +1,20 @@
+TODO: Windows内核源码并不开源，无法查看方法的具体实现
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um
+    WinSock2.h OS操作系统提供SDK中的头文件，其中声明方法
+       #if INCL_WINSOCK_API_TYPEDEFS
+       typedef
+       _Must_inspect_result_
+       SOCKET
+       (WSAAPI * LPFN_SOCKET)(
+           _In_ int af,
+           _In_ int type,
+           _In_ int protocol
+           );
+       #endif /* INCL_WINSOCK_API_TYPEDEFS */
+
+在Wind系统执行Linux Shell命令
+- MobaXterm Linux Terminal
+- Babun Windows Shell
+
+在Windows使用Linux完整系统需要通过特定平台
+- WSL: Windows Subsystem for Linux 安装Docker时需要借助WSL

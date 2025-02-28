@@ -1,7 +1,7 @@
-CPU Cores: 电脑多核CPU的数量，系统physical cores物理核心数
-Logical Processors: 逻辑处理器数，多线程并发的最大数量
+CPU Cores: 多核CPU数量是系统physical cores物理核心数
+Logical Processors: 逻辑处理器数约束最大并发多线程数量
 1. 一个Core核心至少包含一个Processor处理器，由处理器执行任务
-2. 上层的应用程序基于Processor处理器的数目来分配并发执行的线程数量
+2. 上层应用程序基于Processor处理器数目来分配并发执行线程任务
 
 Physical cores are number of physical cores, actual hardware components.
 Logical cores are the number of physical cores times the number of threads that can run on each core through hyper-threading.
