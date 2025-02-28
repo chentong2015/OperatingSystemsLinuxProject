@@ -1,0 +1,31 @@
+TODO. 上层应用程序调用Socket API接收和发送网络数据
+数据的接收:
+  来自网络的数据发送到机器网卡，
+  数据被拷贝到Socket缓冲区，
+  然后被加载到内存，供程序读取使用
+数据的发送：
+  将程序内存中的数据拷贝到Socket缓冲区
+  然后将缓冲区数据拷贝到网卡，发送到网络
+
+TODO. Socket本质上是底层TCP连接暴露到上层的API接口
+上层应用程序无法直接调用OS级别核心方法(建立TCP连接, 发送数据..), 需要通过Socket API进行调用
+Socket socket = new Socket("localhost", 8080);
+
+Socket.createImpl()
+   AbstractPlainSocketImpl.socketCreate()
+       class PlainSocketImpl
+       static native int socket0(boolean stream) throws IOException;
+       // 最终会调用到本地方法，OpenJdk中实现的底层方法
+
+jdk8u-jdk-master\jdk8u-jdk-master\src\windows\native\java\net
+   DualStackPlainSocketImpl.c
+   net_util_md.c
+       int NET_Socket(int domain, int type 协议的类型, int protocol) {
+          SOCKET sock;
+          // 该方法调用OS底层暴露出来的接口
+          sock = socket(domain, type, protocol);
+          if (sock != INVALID_SOCKET) {
+              SetHandleInformation((HANDLE)(uintptr_t)sock, HANDLE_FLAG_INHERIT, FALSE);
+          }
+          return (int)sock;
+       }
