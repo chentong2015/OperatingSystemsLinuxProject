@@ -1,3 +1,6 @@
+> man epoll_create 名称查系统函数的介绍
+> man malloc       在内存中分配内存空间，返回指针
+
 // JDK源码实现Epoll多路复用机制
 // EPollSelectorImpl.java
 // EPollArrayWrapper.java
