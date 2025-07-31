@@ -48,3 +48,19 @@ su 切换用户
 Recover the root password after forgetting
   挂载root分区，编辑/etc/passwd文件删除root密码，重启
   Mount the root partition, edit the /etc/passwd file to remove the root password, reboot.
+
+如果有sshd，则ssh-server已经启动；若仅有agent，则尚未启动；
+开启ssh服务：/etc/init.d/ssh start
+>cd /etc/init.d
+>./ssh start
+> netstat -tl
+> netstat -anp | grep :22
+> service sshd start 启动
+
+关闭服务器的防火墙Fireware，内网使用来进行测试
+> sudo ufw disable
+> sudo ufw enable
+> service iptables stop
+> service iptables status # Stopped IPv4 firewall with iptables (tester stop)
+
+> sudo apt-get install openssh-server 安装打开ssh服务的库

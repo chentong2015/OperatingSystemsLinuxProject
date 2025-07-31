@@ -1,0 +1,23 @@
+TODO. 常见服务器运维命令
+> ps -A | grep java 查看指定程序的进程Process
+> ps -e | grep ssh 检查当前的ssh开启情况
+> ps aux 查看后台进程
+> kill -9 [PID]     关闭指定进程
+
+> time command      确定某个指令执行的时间
+> nohup command     即使关闭Terminal仍然运行指令
+
+> top              查看系统平均负载和CPU使用率fr
+> free –m          查看内存的使用情况
+> df -h            查看剩余存储空间(disk free)
+  -h, --human-readable
+> du -sh /folder   查看指定目录大小(disk usage)
+  -s, --summarize
+  -h, --human-readable
+
+> ss -tuln  CentOS中检查某个端口是否被占用
+> ss -tuln | grep :80
+  -t: 显示 TCP 端口
+  -u: 显示 UDP 端口
+  -l: 仅显示监听状态的端口
+  -n: 不解析域名（显示端口号）
