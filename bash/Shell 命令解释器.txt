@@ -1,0 +1,8 @@
+Shell 是用户与操作系统内核之间的"命令解释器"
+Shell 是一种"概念接口", Bash是其中一个具体实现
+
+sh	    Bourne Shell, 最早标准基础
+bash	Bourne Again SHell 最常用, Linux默认
+zsh	    功能更强, macOS默认
+fish	现代化, 语法不兼容sh
+dash	轻量, Ubuntu /bin/sh 指向它

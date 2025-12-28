@@ -1,0 +1,8 @@
+#! 表示使用后面的程序来解释这个脚本
+
+TODO #!/bin/bash
+使用特定路径下的bash
+
+TODO #!/usr/bin/env bash
+通过env程序定位bash可执行文件
+env会在$PATH里找用户当前环境中的bash, 保证通用平台的下的执行

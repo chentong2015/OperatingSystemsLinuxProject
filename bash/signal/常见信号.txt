@@ -1,0 +1,6 @@
+信号名	编号	说明
+SIGINT	2	Ctrl+C
+SIGTERM	15	kill 默认信号
+SIGKILL	9	强制终止(不能被 trap
+SIGHUP	1	终端断开
+EXIT	—	Shell 退出时(不是信号)

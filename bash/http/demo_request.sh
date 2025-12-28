@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 EXPECTED_CODE="response ok"
 

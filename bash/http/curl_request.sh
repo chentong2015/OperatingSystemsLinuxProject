@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 curl --request GET \
   --url 'http://www.ctong.com/v1/testing/example' \

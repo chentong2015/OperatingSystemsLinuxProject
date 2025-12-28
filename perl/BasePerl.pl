@@ -1,3 +1,4 @@
+# 使用以下perl程序来解析脚本并(由Perl解释器执行)执行
 #!/usr/bin/perl
 
 print "hello perl\n";
