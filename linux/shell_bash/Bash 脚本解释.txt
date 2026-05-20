@@ -5,4 +5,4 @@ TODO #!/bin/bash
 
 TODO #!/usr/bin/env bash
 通过env程序定位bash可执行文件
-env会在$PATH里找用户当前环境中的bash, 保证通用平台的下的执行
+env会在$PATH里找用户当前环境中的bash, 保证通用平台执行

@@ -1,4 +1,3 @@
-TODO. Powershell 脚本执行权限设置
 > .\login.ps1
   .\login.ps1 : File C:\***\Tools\Automation\windows\bin\login.ps1 cannot be loaded.
   The file C:\***\Tools\Automation\windows\bin\login.ps1 is not digitally signed.
@@ -9,8 +8,9 @@ TODO. Powershell 脚本执行权限设置
   At line:1 char:1 + .\login.ps1 + ~~~~~~~~~~~ + CategoryInfo :
   SecurityError: (:) [], PSSecurityException + FullyQualifiedErrorId : UnauthorizedAccess
 
+// 本地脚本允许运行, 网络下载脚本必须签名
 > Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
+// 带参数和不带参数的区别
 > .\login.ps1
-
 > .\export.ps1 -publicIds id1,id2,id3 -exportType EXPORT_CONFIGURATION -format T
