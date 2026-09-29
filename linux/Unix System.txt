@@ -1,0 +1,5 @@
+Unix 一套操作系统及其标准/家族
+一切皆文件的设计思想
+命令行工具丰富: ls、cp、mv、grep、sh
+
+Unix 家族: Unix, BSD, MacOS

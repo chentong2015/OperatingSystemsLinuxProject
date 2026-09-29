@@ -1,8 +1,11 @@
-Linux发行版: RedHat / CentOs / Ubuntu / Alpine(轻量级 几十M)
-Linux内核开发: C++/C和汇编语言
+Linux本身只是内核(C和汇编)，不是完整的操作系统
+Linux内核的开发收到Unix标准的影响
+Linux内核包含网络、存储、文件系统、内存、调度器等
 
-OS系统虚拟机: 将系统切出一块, 像一台机器一样运转, 在硬件中虚拟出来, 和主机共享硬件资源
-Linux体系架构: 内核网络、存储、文件系统、内存、调度器，Cgroup等模块
+TODO. Linux发行版(Distribution)
+Linux 内核 + GNU 工具 + 软件包管理器 + 其他系统组件
+=> RedHat / CentOs / Ubuntu / Alpine(轻量级 几十M)
+
 
 网络通讯:
 服务端建立连接通过网口或网络驱动程序来感知事件
