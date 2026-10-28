@@ -1,0 +1,4 @@
+ora_user=YOUR_USERNAME
+ora_pass=YOUR_PASSWORD
+ora_db=YOUR_DB_HOST
+ora_db_srv=YOUR_SERVICE_NAME

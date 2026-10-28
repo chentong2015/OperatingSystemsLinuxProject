@@ -1,0 +1,4 @@
+sqlserver_user=sa
+sqlserver_pass=hello123!
+sqlserver_db=localhost:1522
+sqlserver_db_srv=ls-all-db
