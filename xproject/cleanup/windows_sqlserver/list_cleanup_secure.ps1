@@ -65,11 +65,8 @@ if ($sqlserver_db -match '^(.*):(\d+)$') {
     $SQL_SERVER = "$sqlserver_db,1433"
 }
 
-Write-Host "SQL_SERVER = $SQL_SERVER"
-
 # --- Run sqlcmd and save output ---
-& sqlcmd -S $SQL_SERVER -d $sqlserver_db_srv -U $sqlserver_user -P $sqlserver_pass `
-  -b -r 1  -i $SQL_FILE -o $OUTPUT_FILE
+& sqlcmd -S $SQL_SERVER -d $sqlserver_db_srv -U $sqlserver_user -P $sqlserver_pass -b -r 1  -i $SQL_FILE -o $OUTPUT_FILE
 
 # --- Check SQL execution result ---
 $sqlcmd_exit_code = $LASTEXITCODE
@@ -80,4 +77,51 @@ if ($sqlcmd_exit_code -ne 0) {
 }
 
 Write-Host "SQL script executed successfully. Output saved to $OUTPUT_FILE"
+
+
+# --- Create deleted files log if it doesn't exist ---
+if (-not (Test-Path -LiteralPath $DELETED_FILES_LOG -PathType Leaf)) {
+    New-Item -Path $DELETED_FILES_LOG -ItemType File -Force | Out-Null
+    Write-Host "Created deleted files log: $DELETED_FILES_LOG"
+}
+
+# --- Function to check if file was already deleted ---
+function IsAlreadyDeleted([string]$FilePath) {
+    if (-not (Test-Path -LiteralPath $DELETED_FILES_LOG -PathType Leaf)) {
+        return $false
+    }
+    foreach ($line in [System.IO.File]::ReadLines($DELETED_FILES_LOG)) {
+        if ($line -ceq $FilePath) {
+            return $true
+        }
+    }
+    return $false
+}
+
+# --- Function to add file to deleted log ---
+function AddToDeletedLog([string]$FilePath) {
+    Add-Content -LiteralPath $DELETED_FILES_LOG -Value $FilePath -Encoding UTF8
+}
+
+
+# --- Parse output and delete files ---
+Write-Host "Deleting files listed in SQL output..."
+
+# $BASE_DIR=<shared-drive.location>/work/db/
+$BASE_DIR=C:/Work/WorkProjects/WLM_WORKSPACE/shared-drive/work/db/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 exit 0

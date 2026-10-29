@@ -75,8 +75,6 @@ add_to_deleted_log() {
 
 
 
-
-
 # --- Parse output and delete files ---
 echo "Deleting files listed in SQL output..."
 
@@ -94,33 +92,36 @@ while IFS= read -r file; do
     found_files=$(find "$BASE_DIR" -type f -name "$file" 2>/dev/null)
     
     if [[ -z "$found_files" ]]; then
-      echo "File not found in directory or subdirectories: $file"
-      # Try the original location as fallback
-      full_path="$BASE_DIR$file"
-      if is_already_deleted "$full_path"; then
-        echo "Already deleted previously: $full_path"
-      else
-        add_to_deleted_log "$full_path"
-      fi
-    else
-      # Process each found file (in case of duplicates in different subdirectories)
-      while IFS= read -r full_path; do
-        # Check if file was already deleted in a previous run
+        echo "File not found in directory or subdirectories: $file"
+        # Try the original location as fallback
+        full_path="$BASE_DIR$file"
         if is_already_deleted "$full_path"; then
           echo "Already deleted previously: $full_path"
-          continue
-        fi
-        
-        if [[ -f "$full_path" ]]; then
-#          rm "$full_path" && echo "Deleted: $full_path" && add_to_deleted_log "$full_path" || echo "Failed to delete: $full_path"
-          echo "Deleted: $full_path"
-          add_to_deleted_log "$full_path"
         else
-          echo "File not found: $full_path"
           add_to_deleted_log "$full_path"
         fi
-      done <<< "$found_files"
+
+    else
+        # Process each found file (in case of duplicates in different subdirectories)
+        while IFS= read -r full_path; do
+          # Check if file was already deleted in a previous run
+          if is_already_deleted "$full_path"; then
+            echo "Already deleted previously: $full_path"
+            continue
+          fi
+
+          if [[ -f "$full_path" ]]; then
+  #          rm "$full_path" && echo "Deleted: $full_path" && add_to_deleted_log "$full_path" || echo "Failed to delete: $full_path"
+            echo "Deleted: $full_path"
+            add_to_deleted_log "$full_path"
+          else
+            echo "File not found: $full_path"
+            add_to_deleted_log "$full_path"
+          fi
+
+        done <<< "$found_files"
     fi
+
   else
     echo "Skipping non-target file: $file"
   fi
