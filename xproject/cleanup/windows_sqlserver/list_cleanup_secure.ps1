@@ -107,9 +107,9 @@ function AddToDeletedLog([string]$FilePath) {
 # --- Parse output and delete files ---
 Write-Host "Deleting files listed in SQL output..."
 
-# --- $BASE_DIR=<shared-drive.location>/work/db/
-# --- $BASE_DIR=C:/Work/WorkProjects/WLM_WORKSPACE/shared-drive/work/db/
-$BASE_DIR=C:/Users/chent5/Downloads/Testing/
+# --- $BASE_DIR="<shared-drive.location>/work/db/"
+# --- $BASE_DIR="C:/Work/WorkProjects/WLM_WORKSPACE/shared-drive/work/db/"
+$BASE_DIR="C:/Users/chent5/Downloads/Testing/"
 
 # Read each line from SQL output
 foreach ($fileLine in [System.IO.File]::ReadLines($OUTPUT_FILE)) {
@@ -118,8 +118,6 @@ foreach ($fileLine in [System.IO.File]::ReadLines($OUTPUT_FILE)) {
     if ([string]::IsNullOrWhiteSpace($file)) {
         continue
     }
-
-    Write-Host "find file in sql_output : $file"
 
     # Convert filename to lowercase for case-insensitive matching
     $fileLower = $file.ToLowerInvariant()
@@ -155,7 +153,6 @@ foreach ($fileLine in [System.IO.File]::ReadLines($OUTPUT_FILE)) {
 
                 if (Test-Path -LiteralPath $full_path -PathType Leaf) {
                     try {
-                        # Delete the target file found
                         Remove-Item -LiteralPath $full_path -Force -ErrorAction Stop
                     } catch {
                         Write-Host "Failed to delete: $full_path"
