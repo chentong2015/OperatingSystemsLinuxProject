@@ -107,21 +107,69 @@ function AddToDeletedLog([string]$FilePath) {
 # --- Parse output and delete files ---
 Write-Host "Deleting files listed in SQL output..."
 
-# $BASE_DIR=<shared-drive.location>/work/db/
-$BASE_DIR=C:/Work/WorkProjects/WLM_WORKSPACE/shared-drive/work/db/
+# --- $BASE_DIR=<shared-drive.location>/work/db/
+# --- $BASE_DIR=C:/Work/WorkProjects/WLM_WORKSPACE/shared-drive/work/db/
+$BASE_DIR=C:/Users/chent5/Downloads/Testing/
 
+# Read each line from SQL output
+foreach ($fileLine in [System.IO.File]::ReadLines($OUTPUT_FILE)) {
+    # Skip empty lines
+    $file = $fileLine.Trim()
+    if ([string]::IsNullOrWhiteSpace($file)) {
+        continue
+    }
 
+    # Convert filename to lowercase for case-insensitive matching
+    $fileLower = $file.ToLowerInvariant()
+    if ($fileLower -match '^#?.*\.(xlsx|kz)$') {
 
+        # Search for the file in BASE_DIR and all subdirectories
+        try {
+            $foundFiles = @(Get-ChildItem -LiteralPath $BASE_DIR -File -Recurse | Where-Object { $_.Name -ceq $file })
+        } catch {
+            $foundFiles = @()
+        }
 
+        if ($foundFiles.Count -eq 0) {
+            Write-Host "File not found in directory or subdirectories: $file"
 
+            # Try the original location as fallback
+            $full_path = Join-Path -Path $BASE_DIR -ChildPath $file
+            if (IsAlreadyDeleted $full_path) {
+                Write-Host "Already deleted previously: $full_path"
+            } else {
+                Add-ToDeletedLog $full_path
+            }
+        } else {
+            # Process each found file (including duplicates in different subdirectories)
+            foreach ($foundFile in $foundFiles) {
 
+                # Check if file was already deleted in a previous run
+                $full_path = $foundFile.FullName
+                if (IsAlreadyDeleted $full_path) {
+                    Write-Host "Already deleted previously: $full_path"
+                    continue
+                }
 
-
-
-
-
-
-
-
+                if (Test-Path -LiteralPath $full_path -PathType Leaf) {
+                    try {
+                        # Delete the target file found
+                        Remove-Item -LiteralPath $full_path -Force -ErrorAction Stop
+                    } catch {
+                        Write-Host "Failed to delete: $full_path"
+                        continue
+                    }
+                    Write-Host "Deleted: $full_path"
+                    Add-ToDeletedLog $full_path
+                } else {
+                    Write-Host "File not found: $full_path"
+                    Add-ToDeletedLog $full_path
+                }
+            }
+        }
+    } else {
+        Write-Host "Skipping non-target file: $file"
+    }
+}
 
 exit 0
