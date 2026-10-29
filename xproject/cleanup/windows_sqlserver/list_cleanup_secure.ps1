@@ -122,7 +122,6 @@ foreach ($fileLine in [System.IO.File]::ReadLines($OUTPUT_FILE)) {
     # Convert filename to lowercase for case-insensitive matching
     $fileLower = $file.ToLowerInvariant()
     if ($fileLower -match '^#?.*\.(xlsx|kz)$') {
-
         # Search for the file in BASE_DIR and all subdirectories
         try {
             $foundFiles = @(Get-ChildItem -LiteralPath $BASE_DIR -File -Recurse | Where-Object { $_.Name -ceq $file })
@@ -143,7 +142,6 @@ foreach ($fileLine in [System.IO.File]::ReadLines($OUTPUT_FILE)) {
         } else {
             # Process each found file (including duplicates in different subdirectories)
             foreach ($foundFile in $foundFiles) {
-
                 # Check if file was already deleted in a previous run
                 $full_path = $foundFile.FullName
                 if (IsAlreadyDeleted $full_path) {
