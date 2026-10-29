@@ -1,4 +1,4 @@
-ora_user=YOUR_USERNAME
-ora_pass=YOUR_PASSWORD
-ora_db=YOUR_DB_HOST
-ora_db_srv=YOUR_SERVICE_NAME
+ora_user=LS_ALL
+ora_pass=hello00
+ora_db=127.0.0.1
+ora_db_srv=xe

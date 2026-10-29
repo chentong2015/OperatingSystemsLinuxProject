@@ -1,4 +1,4 @@
-# server.liveservice.fpa.rbxd.ds,1433
+# server.liveservice.com,1433
 # localhost:1522
 
 & sqlcmd `
