@@ -119,6 +119,8 @@ foreach ($fileLine in [System.IO.File]::ReadLines($OUTPUT_FILE)) {
         continue
     }
 
+    Write-Host "find file in sql_output : $file"
+
     # Convert filename to lowercase for case-insensitive matching
     $fileLower = $file.ToLowerInvariant()
     if ($fileLower -match '^#?.*\.(xlsx|kz)$') {
@@ -138,7 +140,7 @@ foreach ($fileLine in [System.IO.File]::ReadLines($OUTPUT_FILE)) {
             if (IsAlreadyDeleted $full_path) {
                 Write-Host "Already deleted previously: $full_path"
             } else {
-                Add-ToDeletedLog $full_path
+                AddToDeletedLog $full_path
             }
         } else {
             # Process each found file (including duplicates in different subdirectories)
@@ -160,10 +162,10 @@ foreach ($fileLine in [System.IO.File]::ReadLines($OUTPUT_FILE)) {
                         continue
                     }
                     Write-Host "Deleted: $full_path"
-                    Add-ToDeletedLog $full_path
+                    AddToDeletedLog $full_path
                 } else {
                     Write-Host "File not found: $full_path"
-                    Add-ToDeletedLog $full_path
+                    AddToDeletedLog $full_path
                 }
             }
         }
