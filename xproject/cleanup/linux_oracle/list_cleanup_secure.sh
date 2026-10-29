@@ -51,6 +51,10 @@ if [ $sqlplus_exit_code -ne 0 ]; then
 fi
 echo "SQL script executed successfully. Output saved to $OUTPUT_FILE"
 
+
+
+
+
 # --- Create deleted files log if it doesn't exist ---
 if [ ! -f "$DELETED_FILES_LOG" ]; then
   touch "$DELETED_FILES_LOG"
@@ -68,6 +72,10 @@ add_to_deleted_log() {
   local filepath="$1"
   echo "$filepath" >> "$DELETED_FILES_LOG"
 }
+
+
+
+
 
 # --- Parse output and delete files ---
 echo "Deleting files listed in SQL output..."
