@@ -39,10 +39,16 @@ if ([string]::IsNullOrWhiteSpace($sqlserver_user) -or
     exit 2
 }
 
+if ($trust_server_certificate -notin @("true", "false")) {
+    throw "Invalid trust_server_certificate value. Expected 'true' or 'false'."
+    exit 3
+}
+
+
 # --- Check SQL file argument ---
 if ($args.Count -lt 1) {
     Write-Host "Usage: .\list_cleanup_secure.ps1 <sql_script.sql>"
-    exit 3
+    exit 4
 }
 
 $SQL_FILE = $args[0]
@@ -51,14 +57,15 @@ $DELETED_FILES_LOG = "deleted_files.log"
 
 if (-not (Test-Path -LiteralPath $SQL_FILE -PathType Leaf)) {
     Write-Error "Error: SQL file '$SQL_FILE' not found."
-    exit 4
+    exit 5
 }
 
 # --- Check for sqlcmd ---
 if (-not (Get-Command sqlcmd -ErrorAction SilentlyContinue)) {
     Write-Error "Error: sqlcmd is not installed or not in PATH."
-    exit 5
+    exit 6
 }
+
 
 # --- Build sqlcmd arguments, dynamically control certificate validation ---
 $sqlcmdArgs = @(
