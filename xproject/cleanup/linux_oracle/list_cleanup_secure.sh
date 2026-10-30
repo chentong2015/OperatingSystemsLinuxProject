@@ -84,6 +84,9 @@ while IFS= read -r file; do
   # Skip empty lines
   [[ -z "$file" ]] && continue
 
+  # Remove Windows carriage return
+  # file="${file%$'\r'}"
+
   # Convert filename to lowercase for case-insensitive matching
   file_lower="${file,,}"
   if [[ "$file_lower" =~ ^#?.*\.(xlsx|kz)$ ]]; then

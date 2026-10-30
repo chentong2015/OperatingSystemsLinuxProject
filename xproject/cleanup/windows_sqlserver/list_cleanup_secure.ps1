@@ -23,16 +23,18 @@ foreach ($line in Get-Content -LiteralPath $CRED_FILE) {
     $credentials[$key] = $value
 }
 
-$sqlserver_user   = $credentials["sqlserver_user"]
-$sqlserver_pass   = $credentials["sqlserver_pass"]
-$sqlserver_db     = $credentials["sqlserver_db"]
+$sqlserver_user = $credentials["sqlserver_user"]
+$sqlserver_pass = $credentials["sqlserver_pass"]
+$sqlserver_db = $credentials["sqlserver_db"]
 $sqlserver_db_srv = $credentials["sqlserver_db_srv"]
+$trust_server_certificate = $credentials["trust_server_certificate"]
 
 # --- Check required variables ---
 if ([string]::IsNullOrWhiteSpace($sqlserver_user) -or
     [string]::IsNullOrWhiteSpace($sqlserver_pass) -or
     [string]::IsNullOrWhiteSpace($sqlserver_db) -or
-    [string]::IsNullOrWhiteSpace($sqlserver_db_srv) ) {
+    [string]::IsNullOrWhiteSpace($sqlserver_db_srv) -or
+    [string]::IsNullOrWhiteSpace($trust_server_certificate)) {
     Write-Error "Error: Missing credentials in $CRED_FILE"
     exit 2
 }
@@ -58,15 +60,24 @@ if (-not (Get-Command sqlcmd -ErrorAction SilentlyContinue)) {
     exit 5
 }
 
-# --- Convert custom port to sqlcmd server,port format ---
-if ($sqlserver_db -match '^(.*):(\d+)$') {
-    $SQL_SERVER = "$($Matches[1]),$($Matches[2])"
-} else {
-    $SQL_SERVER = "$sqlserver_db,1433"
+# --- Build sqlcmd arguments, dynamically control certificate validation ---
+$sqlcmdArgs = @(
+    "-S", $sqlserver_db
+    "-d", $sqlserver_db_srv
+    "-U", $sqlserver_user
+    "-P", $sqlserver_pass
+    "-i", $SQL_FILE
+    "-o", $OUTPUT_FILE
+    "-N"
+    "-b"
+    "-r", "1"
+)
+
+if ($trust_server_certificate -ieq "true") {
+    $sqlcmdArgs += "-C"
 }
 
-# --- Run sqlcmd and save output ---
-& sqlcmd -S $SQL_SERVER -d $sqlserver_db_srv -U $sqlserver_user -P $sqlserver_pass -b -r 1  -i $SQL_FILE -o $OUTPUT_FILE
+& sqlcmd @sqlcmdArgs
 
 # --- Check SQL execution result ---
 $sqlcmd_exit_code = $LASTEXITCODE
@@ -75,7 +86,6 @@ if ($sqlcmd_exit_code -ne 0) {
     Write-Host "Check output file: $OUTPUT_FILE"
     exit $sqlcmd_exit_code
 }
-
 Write-Host "SQL script executed successfully. Output saved to $OUTPUT_FILE"
 
 
