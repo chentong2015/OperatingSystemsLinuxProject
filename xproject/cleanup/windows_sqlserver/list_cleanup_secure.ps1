@@ -107,7 +107,9 @@ function IsAlreadyDeleted([string]$FilePath) {
     if (-not (Test-Path -LiteralPath $DELETED_FILES_LOG -PathType Leaf)) {
         return $false
     }
-    foreach ($line in [System.IO.File]::ReadLines($DELETED_FILES_LOG)) {
+
+    $lines = [System.IO.File]::ReadAllLines($DELETED_FILES_LOG)
+    foreach ($line in $lines) {
         if ($line -ceq $FilePath) {
             return $true
         }
@@ -123,9 +125,6 @@ function AddToDeletedLog([string]$FilePath) {
 
 # --- Parse output and delete files ---
 Write-Host "Deleting files listed in SQL output..."
-
-# --- $BASE_DIR="<shared-drive.location>/work/db/"
-# --- $BASE_DIR="C:/Work/WorkProjects/WLM_WORKSPACE/shared-drive/work/db/"
 $BASE_DIR="C:/Users/chent5/Downloads/Testing/"
 
 # Read each line from SQL output
