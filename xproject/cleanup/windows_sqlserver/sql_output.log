@@ -1,12 +1,4 @@
-FILENAME                                                                                                                                                                                                                                                        
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#SFS#_c75b0683abafad5ad86f16fdd1abb4af9b87092d7e9aa4f873ea1d9bb6720e00.kz                                                                                                                                                                                       
-#SFS#_092165c0d94578b574fe8909d40d5e3367e7ccddbfe1be4d749566c73edb9507.kz                                                                                                                                                                                       
-#SFS#_532c6b854c8ec05d8650f43c5d0bce0b94cfe1ca10af78daa5add6b0ec9e88fd.zip                                                                                                                                                                                      
-#SFS#_d1f2012361c8adfce2d71cc31e6302210beac93123f92950e1a8476210fc6c9c.kz                                                                                                                                                                                       
-#SFS#_73e33101466aab1b940295301054ab613dc180b8ed34cdafc28bd9553db258a7.kz                                                                                                                                                                                       
-#SFS#_08c1cbeabe0031788374905a5bd12958ed9e55463d04b53c892e9900a3727a87.kz                                                                                                                                                                                       
-#SFS#_99ba5184434514142b943d4733e745fd352c68fb98037eacd0d620f6628f3ccd.kz                                                                                                                                                                                       
-#SFS#_77dca96a77400a4e6a1de89f742c2e6cc8e94a75dd57682afeb2941dd4b80c43.kz                                                                                                                                                                                       
-
-(8 rows affected)
+Sqlcmd: Error: Microsoft ODBC Driver 17 for SQL Server : TCP Provider: An attempt was made to access a socket in a way forbidden by its access permissions.
+.
+Sqlcmd: Error: Microsoft ODBC Driver 17 for SQL Server : Login timeout expired.
+Sqlcmd: Error: Microsoft ODBC Driver 17 for SQL Server : A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online..

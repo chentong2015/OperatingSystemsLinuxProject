@@ -1,16 +1,14 @@
+本地脚本允许运行, 网络下载脚本必须签名
 > .\login.ps1
-  .\login.ps1 : File C:\***\Tools\Automation\windows\bin\login.ps1 cannot be loaded.
-  The file C:\***\Tools\Automation\windows\bin\login.ps1 is not digitally signed.
-  You cannot run this script on the current system.
+   The file C:\***\Tools\Automation\windows\bin\login.ps1 is not digitally signed.
+   You cannot run this script on the current system.
 
-  For more information about running scripts and setting execution policy,
-  see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
-  At line:1 char:1 + .\login.ps1 + ~~~~~~~~~~~ + CategoryInfo :
-  SecurityError: (:) [], PSSecurityException + FullyQualifiedErrorId : UnauthorizedAccess
-
-// 本地脚本允许运行, 网络下载脚本必须签名
 > Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
-// 带参数和不带参数的区别
+带参数和不带参数的区别
 > .\login.ps1
 > .\export.ps1 -publicIds id1,id2,id3 -exportType EXPORT_CONFIGURATION -format T
+
+相对路径参数和绝对路径参数
+> .\test.ps1 .\file.txt
+> .\test.ps1 "C:\Scripts\deploy.sql"

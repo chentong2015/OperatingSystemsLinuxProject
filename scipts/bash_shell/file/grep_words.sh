@@ -12,3 +12,5 @@ grep --count '<record ' file.xml # 统计包含指定字符串的行数
 
 # TODO. 从目录中文件(递归遍历)查找特定字符串
 grep -r 'string_to_find' .
+
+grep -R "cleaning up" --include="*.log" log

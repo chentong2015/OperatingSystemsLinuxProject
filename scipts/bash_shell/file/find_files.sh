@@ -7,3 +7,5 @@ find . -type -f -name *.java | wc -l
 
 # TODO. 找到指定目录的目录(指定文件类型)
 find . -type d -name folder_name
+
+find log -name "*.gz" -exec zgrep -H "cleaning up" {} +

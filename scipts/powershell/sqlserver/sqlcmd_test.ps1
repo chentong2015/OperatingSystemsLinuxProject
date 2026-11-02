@@ -1,16 +1,16 @@
 # -------------------------------
 # SQL Server configuration
 # -------------------------------
-$Server   = "localhost"
-$Database = "MyDatabase"
-$SqlFile  = "C:\Scripts\deploy.sql"
-$LogFile  = "C:\Scripts\deploy.log"
 
 # --- Check for sqlcmd ---
 if (-not (Get-Command sqlcmd -ErrorAction SilentlyContinue)) {
     Write-Error "Error: sqlcmd is not installed or not in PATH."
     exit 5
 }
+
+
+$SqlFile  = "C:\Scripts\deploy.sql"
+$LogFile  = "C:\Scripts\deploy.log"
 
 # --- Check SQL file ---
 if (-not (Test-Path -LiteralPath $SqlFile -PathType Leaf)) {
@@ -21,8 +21,10 @@ if (-not (Test-Path -LiteralPath $SqlFile -PathType Leaf)) {
 # --- Execute SQL script ---
 Write-Host "Executing SQL script: $SqlFile"
 
-& sqlcmd -S $Server -d $Database -E -b -r 1 -i $SqlFile -o $LogFile
+$Server   = "localhost"
+$Database = "MyDatabase"
 
+& sqlcmd -S $Server -d $Database -E -b -r 1 -i $SqlFile -o $LogFile
 $ExitCode = $LASTEXITCODE
 
 if ($ExitCode -ne 0) {

@@ -1,4 +1,4 @@
-# xxx.liveservice.fpa.rbxd.ds,1433
+# 本机不能使用localhost名称，无法直接解析
 # 127.0.0.1,1522
 
 & sqlcmd `
