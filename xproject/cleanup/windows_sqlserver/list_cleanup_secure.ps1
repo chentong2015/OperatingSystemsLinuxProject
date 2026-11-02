@@ -125,7 +125,8 @@ function AddToDeletedLog([string]$FilePath) {
 
 # --- Parse output and delete files ---
 Write-Host "Deleting files listed in SQL output..."
-$BASE_DIR="C:/Users/chent5/Downloads/Testing/"
+
+$BASE_DIR="<shared-drive.location>/work/db/"
 
 # Read each line from SQL output
 foreach ($fileLine in [System.IO.File]::ReadLines($OUTPUT_FILE)) {
